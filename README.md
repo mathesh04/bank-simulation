@@ -1,4 +1,4 @@
-# Banking Simulation — React + Vite + Spring Boot + Supabase PostgreSQL
+# Banking Simulation
 
 A full-stack banking simulation split into a lightweight React/Vite client and a Spring Boot REST API server.
 
