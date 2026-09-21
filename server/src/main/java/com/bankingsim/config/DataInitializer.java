@@ -34,6 +34,7 @@ public class DataInitializer implements CommandLineRunner {
 
 
         try {
+            jdbcTemplate.execute("ALTER TABLE transactions ALTER COLUMN txn_type TYPE VARCHAR(255)");
             jdbcTemplate.execute("UPDATE users SET role = 'ROLE_CUSTOMER' WHERE role IS NULL");
             jdbcTemplate.execute("UPDATE users SET status = 'ACTIVE' WHERE status IS NULL");
             jdbcTemplate.execute("UPDATE users SET created_at = NOW() WHERE created_at IS NULL");

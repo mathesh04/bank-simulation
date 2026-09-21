@@ -20,7 +20,7 @@ public class Transaction {
     @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 255)
     private String txnType;
 
     @Column(nullable = false)
