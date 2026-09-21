@@ -1,4 +1,4 @@
-# Banking Simulation — React + Vite + Spring Boot + Supabase PostgreSQL
+# Banking Simulation
 
 A full-stack banking simulation split into a lightweight React/Vite client and a Spring Boot REST API server.
 
@@ -28,81 +28,6 @@ banking-simulation-full/
     └── pom.xml
 ```
 
-## 1. Configure Supabase
-
-Create a Supabase project and open **Project Settings → Database**.
-
-Use the Supabase **Session Pooler** connection details for applications where IPv4 compatibility is needed. Put the JDBC URL, username and password into the root `.env` file.
-
-Example:
-
-```env
-DB_URL=jdbc:postgresql://YOUR_PROJECT_REF.pooler.supabase.com:5432/postgres?sslmode=require
-DB_USERNAME=postgres.YOUR_PROJECT_REF
-DB_PASSWORD=YOUR_SUPABASE_DATABASE_PASSWORD
-```
-
-Do not commit real Supabase credentials.
-
-## 2. JWT secret
-
-The backend reads the signing key from `.env` through Spring's external configuration:
-
-```env
-JWT_SECRET=...
-JWT_EXPIRATION_MS=86400000
-```
-
-The application reads it using:
-
-```properties
-app.jwt.secret=${JWT_SECRET}
-```
-
-The frontend never receives the JWT signing secret. The client only receives the signed access token after login.
-
-## 3. Start the backend
-
-Requirements:
-
-- Java 17+
-- Maven 3.9+
-- Supabase project configured
-
-From `server/`:
-
-```bash
-mvn spring-boot:run
-```
-
-API:
-
-```text
-http://localhost:8080/api
-```
-
-Swagger UI:
-
-```text
-http://localhost:8080/swagger-ui.html
-```
-
-## 4. Start the frontend
-
-From `client/`:
-
-```bash
-npm install
-npm run dev
-```
-
-Open:
-
-```text
-http://localhost:5173
-```
-
-The frontend uses `VITE_API_URL` from `client/.env`.
 
 ## Authentication flow
 
