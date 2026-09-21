@@ -41,10 +41,6 @@ function AuthScreen({ onAuthenticated }) {
         <button className="link-button" onClick={() => { setMode(mode === 'login' ? 'register' : 'login'); setError('') }}>
           {mode === 'login' ? 'New customer? Create an account' : 'Already registered? Sign in'}
         </button>
-        <div className="security-note">
-          Default administrator account: <b>admin</b> / <b>Admin@123456</b><br/>
-          Secure session protected via signed JWT tokens.
-        </div>
       </section>
     </main>
   )
